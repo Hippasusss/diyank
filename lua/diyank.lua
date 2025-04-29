@@ -5,6 +5,7 @@
 
 
 
+local config = require("config")
 
 M = {}
 
@@ -25,11 +26,12 @@ function M.copyDiagnosticFromCurrentLine()
         end
     end
 
-    vim.fn.setreg("+", message)
+    vim.fn.setreg(config.options.register, message)
     print("Copied diagnostics to clipboard.")
 end
 
-function M.setup()
+function M.setup(opts)
+    config.options = config.setAllOptions(opts)
 end
 
 return M
