@@ -9,6 +9,8 @@ local config = require("config")
 
 M = {}
 
+local ErrorCodes = { "Error", "Warning", "Hint" }
+
 function M.copyDiagnosticFromCurrentLine()
 
     local lineNum = vim.fn.line('.') - 1;
@@ -20,9 +22,9 @@ function M.copyDiagnosticFromCurrentLine()
     end
 
     local message = ''
-    for _, diagnostic in ipairs(diags) do
+    for i, diagnostic in ipairs(diags) do
         if diagnostic.lnum == lineNum then
-            message = message .. diagnostic.message
+            message = message .. string.format("%d %s: %s\n", i, ErrorCodes[diagnostic.severity], diagnostic.message)
         end
     end
 
