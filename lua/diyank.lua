@@ -9,7 +9,7 @@ local config = require("config")
 
 M = {}
 
-local ErrorCodes = { "Error", "Warning", "Hint" }
+local ErrorCodes = { "Error", "Warning", "Info", "Hint" }
 
 function M.copyDiagnosticFromCurrentLine()
 
