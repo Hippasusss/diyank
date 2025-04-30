@@ -7,7 +7,7 @@
 
 local config = require("config")
 
-M = {}
+local M = {}
 
 local ErrorCodes = { "Error", "Warning", "Info", "Hint" }
 
@@ -33,7 +33,7 @@ function M.copyDiagnosticFromCurrentLine()
 end
 
 function M.setup(opts)
-    config.options = config.setAllOptions(opts)
+    config.options = config.setOptions(opts)
 end
 
 return M
