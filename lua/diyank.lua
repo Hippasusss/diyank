@@ -1,10 +1,3 @@
-
-
-
-
-
-
-
 local config = require("config")
 
 local M = {}
@@ -33,7 +26,7 @@ function M.copyDiagnosticFromCurrentLine()
 end
 
 function M.setup(opts)
-    config.options = config.setOptions(opts)
+    config.setOptions(opts)
 end
 
 return M
