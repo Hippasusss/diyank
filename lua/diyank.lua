@@ -17,7 +17,6 @@ function M.copyDiagnosticFromCurrentLine()
     local message = ''
     for i, diagnostic in ipairs(diags) do
         if diagnostic.lnum == lineNum then
-            print(diagnostic.lnum .. ":" .. lineNum)
             message = message .. string.format("%d %s: %s\n", i, ErrorCodes[diagnostic.severity], diagnostic.message)
         end
     end
@@ -26,7 +25,6 @@ function M.copyDiagnosticFromCurrentLine()
 end
 
 function M.setup(opts)
-    print(vim.inspect(config))
     config.setOptions(opts)
 end
 
