@@ -21,6 +21,7 @@ function M.copyDiagnosticFromCurrentLine()
         end
     end
 
+    print("Yanked Errors")
     vim.fn.setreg(config.options.register, message)
 end
 
