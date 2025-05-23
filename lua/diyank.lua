@@ -4,7 +4,7 @@ local M = {}
 
 local ErrorCodes = { "Error", "Warning", "Info", "Hint" }
 
-function M.copyDiagnosticFromCurrentLine()
+function M.yankDiagnosticFromCurrentLine()
 
     local lineNum = vim.fn.line('.') - 1;
 
