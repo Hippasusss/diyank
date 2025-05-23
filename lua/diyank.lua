@@ -26,6 +26,9 @@ function M.yankDiagnosticFromCurrentLine()
     return message
 end
 
+function M.yankWithDiagnostic()
+end
+
 function M.setup(opts)
     config.setOptions(opts)
 end
