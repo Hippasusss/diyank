@@ -1,4 +1,4 @@
-local config = require("config")
+local config = require("diyank.config")
 
 local M = {}
 
@@ -21,8 +21,8 @@ function M.yankDiagnosticFromCurrentLine()
         end
     end
 
+    print("Yanked Errors")
     vim.fn.setreg(config.options.register, message)
-    print("Copied diagnostics to clipboard.")
     return message
 end
 
