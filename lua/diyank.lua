@@ -23,6 +23,7 @@ function M.yankDiagnosticFromCurrentLine()
 
     vim.fn.setreg(config.options.register, message)
     print("Copied diagnostics to clipboard.")
+    return message
 end
 
 function M.setup(opts)
