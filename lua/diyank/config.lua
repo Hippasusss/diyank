@@ -1,6 +1,6 @@
 local M = {}
 local default_options = {
-    register = "",
+    register = "+",
 }
 
 M.options = {}
