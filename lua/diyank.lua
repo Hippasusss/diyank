@@ -13,7 +13,6 @@ function M.yankDiagnosticFromCurrentLine()
         print("No diagnostics")
         return
     end
-
     local message = ''
     for i, diagnostic in ipairs(diags) do
         if diagnostic.lnum == lineNum then
@@ -21,7 +20,11 @@ function M.yankDiagnosticFromCurrentLine()
         end
     end
 
-    print("Yanked Errors")
+    if message ~= '' then
+        print("Yanked Errors")
+    else
+        print("No diagnostics under cursor")
+    end
     vim.fn.setreg(config.options.register, message)
     return message
 end
