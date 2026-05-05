@@ -10,7 +10,7 @@ Using [lazy.nvim](https://github.com/folke/lazy.nvim):
 {
     dir = "Hippasusss/diyank",
     keys = {
-        {"<leader>yd", function() require("diyank").copyDiagnosticFromCurrentLine() end, mode = {"n"}},
+        {"<leader>yd", function() require("diyank").yankDiagnosticFromCurrentLine() end, mode = {"n"}},
     },
     opts = { register = "+" } -- default register is unnamed. using this will use the sytem clipboard instead
 }
