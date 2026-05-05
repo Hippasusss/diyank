@@ -31,16 +31,18 @@ end
 
 function M.yankWithDiagnostic()
     local lines = {}
+    local start_line = 0
     local mode = vim.fn.mode()
 
     -- Get selected lines or current line
     if mode:match("[vV]") then
         local start_pos = vim.fn.getpos("'<")
         local end_pos = vim.fn.getpos("'>")
-        lines = vim.api.nvim_buf_get_lines(0, start_pos[2]-1, end_pos[2], false)
+        start_line = start_pos[2] - 1
+        lines = vim.api.nvim_buf_get_lines(0, start_line, end_pos[2], false)
     else
-        local lineNum = vim.fn.line('.')-1
-        lines = {vim.api.nvim_buf_get_lines(0, lineNum, lineNum+1, false)[1]}
+        start_line = vim.fn.line('.') - 1
+        lines = {vim.api.nvim_buf_get_lines(0, start_line, start_line + 1, false)[1]}
     end
 
     -- Get all diagnostics for buffer
@@ -59,7 +61,7 @@ function M.yankWithDiagnostic()
     local result = {}
     for i, line in ipairs(lines) do
         local current_line = line
-        local line_diags = diag_map[i-1] -- lnum is 0-based
+        local line_diags = diag_map[start_line + i - 1] -- lnum is 0-based
 
         if line_diags then
             for _, diag in ipairs(line_diags) do
