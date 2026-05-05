@@ -74,6 +74,12 @@ function M.yankWithDiagnostic()
 
     local yank_text = table.concat(result, "\n")
     vim.fn.setreg(config.options.register, yank_text)
+
+    if yank_text:find(" -- ") then
+        print("Yanked " .. #result .. " line(s) with diagnostics")
+    else
+        print("No diagnostics on selected line(s)")
+    end
     return yank_text
 end
 
